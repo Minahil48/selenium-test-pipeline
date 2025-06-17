@@ -25,13 +25,13 @@ pipeline {
 
     post {
         success {
-            mail to: 'evaluator@example.com',
+            mail to: 'minahilashfaq48@gmail.com',
                  subject: "Build Success - Selenium Tests Passed",
                  body: "All test cases passed successfully."
         }
 
         failure {
-            mail to: 'evaluator@example.com',
+            mail to: 'minahilashfaq48@gmail.com',
                  subject: "Build Failed - Test Errors",
                  body: "Some test cases failed. Please check Jenkins logs."
         }
