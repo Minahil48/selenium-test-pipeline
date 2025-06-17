@@ -128,7 +128,7 @@ it('should not store token in localStorage after signup', async () => {
   const alert = await driver.switchTo().alert();
   await alert.accept();
 
-  // Check localStorage via JS
+  // Check localStorage via js
   const token = await driver.executeScript("return localStorage.getItem('token');");
   assert.equal(token, null);
 });
