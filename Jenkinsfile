@@ -1,4 +1,4 @@
- pipeline {
+pipeline {
   agent any
 
   stages {
@@ -8,16 +8,17 @@
       }
     }
 
-    stage('Test with Selenium') {
-      agent {
-        dockerfile {
-          filename 'Dockerfile'
-          dir 'selenium-tests'
-        }
+    stage('Install Dependencies') {
+      steps {
+        echo 'Installing Node.js packages...'
+        sh 'npm install --prefix selenium-tests'
       }
+    }
+
+    stage('Test with Selenium') {
       steps {
         echo 'Running Selenium tests...'
-        sh 'npx mocha test_login.mjs --timeout 30000'
+        sh 'npx mocha selenium-tests/test_login.mjs --timeout 30000'
       }
     }
   }
